@@ -17,6 +17,9 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/reservation", reservationRouter);
+app.use("/helth", (req, res) => {
+  res.status(200).json("hello");
+});
 dbConnection();
 app.use(errorMiddleware);
 export default app;
