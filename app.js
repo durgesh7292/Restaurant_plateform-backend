@@ -8,7 +8,7 @@ const app = express();
 dotenv.config({ path: "./config/config.env" });
 app.use(
   cors({
-    origin: ["http://localhost:5179"],
+    origin: ["https://restaurant3-hkzc.onrender.com"],
 
     method: ["POST"],
     credentials: true,
