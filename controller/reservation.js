@@ -2,7 +2,6 @@ import { json } from "express";
 import ErrorHandler from "../error/error.js";
 import { Reservation } from "../models/reservationSchema.js";
 export const sendReservation = async (req, res, next) => {
-  i;
   const { firstName, LastName, email, phone, time, date } = req.body;
   if (!firstName || !LastName || !email || !phone || !date || !time) {
     return next(new ErrorHandler("please full fill reservation from!", 400));
