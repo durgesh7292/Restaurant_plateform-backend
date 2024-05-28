@@ -6,11 +6,6 @@ export const sendReservation = async (req, res, next) => {
   if (!firstName || !LastName || !email || !phone || !date || !time) {
     return next(new ErrorHandler("please full fill reservation from!", 400));
   }
-  const existingReservation = await Reservation.findOne({ email });
-  if (existingReservation) {
-    return next(new ErrorHandler("A reservation already exists for the selected emai.", 400));
-  }
-
   try {
     await Reservation.create({
       firstName,
@@ -20,7 +15,6 @@ export const sendReservation = async (req, res, next) => {
       time,
       date,
     });
-
     res.status(200).json({
       success: "true",
       message: "Reservation sent Sucessfully!",
